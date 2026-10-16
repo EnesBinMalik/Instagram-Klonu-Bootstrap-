@@ -1,0 +1,253 @@
+/* 
+ * Kodluyoruz - Bootstrap ile Instagram Klonu
+ * Geliştirici: Enes Öztürk
+ */
+
+:root {
+  --ig-bg: #fafafa;
+  --ig-border: #dbdbdb;
+  --ig-secondary-text: #8e8e8e;
+  --ig-primary-text: #262626;
+  --ig-blue: #0095f6;
+  --ig-blue-hover: #1877f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #fafafa;
+  color: #262626;
+  padding-top: 54px; /* Navbar ile içerik birleşmemesi için */
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* 1. Navbar'ın height'ı 54px olmalı ve arkaplan rengi beyaz olmalı */
+.navbar {
+  height: 54px;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #dbdbdb;
+  z-index: 1030;
+  padding: 0;
+}
+
+/* 2. Logo class'ının içine 192px soldan margin verin */
+.logo {
+  margin-left: 192px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+@media (max-width: 991.98px) {
+  .logo {
+    margin-left: 1rem !important;
+  }
+}
+
+.logo-text {
+  font-family: 'Grandista', cursive, -apple-system, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #262626;
+  letter-spacing: -0.5px;
+}
+
+/* 3. Arama kısmı ::placeholder için arkaplana arama simgesi ve no-repeat */
+.search-box {
+  position: relative;
+}
+
+.search-input {
+  background-color: #efefef;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  height: 36px;
+  width: 250px;
+  font-size: 14px;
+  padding: 0 16px 0 34px;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.search-input:focus {
+  background-color: #ffffff;
+  border-color: #a8a8a8;
+  box-shadow: 0 0 0 1px #a8a8a8;
+}
+
+/* CSS ::placeholder background icon and no-repeat requirement */
+.search-input::placeholder {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%238e8e8e' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 2px center;
+  color: #8e8e8e;
+  padding-left: 20px;
+  font-size: 13px;
+}
+
+/* 4. middlearea içinde maksimum yükseklik 200px olmalı ve !important ile yazılmalı */
+.middlearea {
+  max-height: 200px !important;
+  overflow-y: hidden;
+}
+
+/* Hikayeler (Stories) Styling */
+.story-avatar-container {
+  padding: 2px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  display: inline-flex;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.story-avatar-container:hover {
+  transform: scale(1.05);
+}
+
+.story-avatar-seen {
+  background: #dbdbdb !important;
+}
+
+.story-avatar-inner {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  display: block;
+}
+
+.story-username {
+  font-size: 12px;
+  color: #262626;
+  max-width: 72px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 4px;
+}
+
+/* 5. Post Card & Components */
+.post-card {
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.card-header {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #efefef;
+  padding: 12px 16px;
+}
+
+.card-footer {
+  background-color: #ffffff !important;
+  border-top: 1px solid #efefef !important;
+  padding: 12px 16px;
+}
+
+/* Post Actions Buttons - border olmamalı */
+.post-action-btn {
+  border: 0 !important;
+  background: transparent !important;
+  padding: 6px !important;
+  cursor: pointer;
+  color: #262626;
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, color 0.1s ease;
+}
+
+.post-action-btn:hover {
+  transform: scale(1.1);
+  color: #000000;
+}
+
+.post-action-btn:active {
+  transform: scale(0.9);
+}
+
+/* Heart like active state */
+.post-action-btn.liked {
+  color: #ed4956 !important;
+}
+
+/* 6. stickysidebar & rightpanel */
+.stickysidebar {
+  position: sticky;
+  top: 74px;
+  align-self: flex-start;
+}
+
+.rightpanel {
+  background-color: #ffffff !important;
+  border: none !important;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+/* Floating Heart Animation on Double Click */
+@keyframes heartBurst {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+.floating-heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+  font-size: 90px;
+  pointer-events: none;
+  animation: heartBurst 0.8s ease-out forwards;
+  z-index: 10;
+}
+
+/* Custom scrollbar for stories */
+.stories-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.stories-scroll::-webkit-scrollbar-thumb {
+  background: #dbdbdb;
+  border-radius: 4px;
+}
+
+.stories-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Bottom Nav for Mobile Screens */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #ffffff;
+  border-top: 1px solid #dbdbdb;
+  z-index: 1030;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Instagram Klonu (Bootstrap)",
+  "description": "Bootstrap ve CSS ile geliştirilmiş tam teşekküllü, etkileşimli Instagram klonu - Enes Öztürk imzalı Kodluyoruz ödevi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
